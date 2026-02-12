@@ -1,0 +1,26 @@
+storage:
+  raw_openneuro_dir: "data/raw/openneuro"
+  db_dir: "data/db"
+
+phase1_datasets:
+  - id: "ds003061"   # auditory oddball P300 dataset
+    source: "openneuro_s3"
+  - id: "ds002578"   # visual oddball attention dataset
+    source: "openneuro_s3"
+
+download:
+  minimal_eeg_only: true
+
+preprocess:
+  l_freq: 0.1
+  h_freq: 30.0
+  tmin: -0.2
+  tmax: 0.8
+  baseline: [-0.2, 0.0]
+  resample_sfreq: 128   # set to null to disable
+
+features:
+  name: "p300_erp_windows_v1"
+  windows_sec:
+    - [0.25, 0.35]
+    - [0.35, 0.55]

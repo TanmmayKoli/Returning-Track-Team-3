@@ -1,9 +1,16 @@
 cat > .gitignore << 'EOF'
-data/
+# Ignore large OpenNeuro raw datasets
+data/raw/
+
+# Python
 __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Jupyter
 .ipynb_checkpoints/
+
+# OS
 .DS_Store
 EOF

@@ -21,8 +21,22 @@ python -m scripts.train_baselines
 
 python debug.py
 
+train on one specific dataset:
+python -m scripts.build_p300_features --dataset ds003061 --reset
 
 always do
 export PYTHONPATH="$(pwd)"
 
+commands for training and running different models:
+All models:
+python -m scripts.train_p300_models --models lda,logreg,svm,rf
 
+Just LDA + SVM:
+python -m scripts.train_p300_models --models lda,svm
+
+Just LDA:
+python -m scripts.train_p300_models --models lda
+
+run plots file:
+python -m scripts.plot_p300_results \
+  --preds data/db/models/p300_erp_windows_v1/lda_test_predictions.parquet
